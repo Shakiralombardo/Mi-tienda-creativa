@@ -3,63 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda Creativa Cristiana</title>
+  <title>Amado Propósito</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --rosa-claro: #fddfe9;
+      --rosa-medio: #f6a4b5;
+      --rosa-oscuro: #c75c81;
+      --vino: #7e1f3e;
+      --sombra-suave: rgba(0, 0, 0, 0.08);
+    }
+
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background: #fff0f5;
-      color: #4b0033;
+      background: var(--rosa-claro);
+      color: var(--vino);
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     header {
-      background: linear-gradient(to right, #ffcce0, #cc3366);
+      background: linear-gradient(to right, var(--rosa-medio), var(--rosa-oscuro));
       color: white;
       padding: 20px;
       text-align: center;
-      border-bottom: 5px solid #a62c55;
+      border-bottom: 5px solid var(--vino);
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 10px;
     }
 
     header h1 {
-      <img src="logo-con-proposito.png" alt="Logo Amado Propósito" style="height: 80px; margin-bottom: 10px;">
-      font-size: 2.5em;
       margin: 0;
+      font-size: 2.5em;
     }
 
     nav {
-      background: #ffe6f0;
+      background: var(--rosa-claro);
       padding: 10px;
       display: flex;
       justify-content: center;
       gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav a {
-      color: #a62c55;
+      color: var(--vino);
       text-decoration: none;
       font-weight: bold;
-      transition: transform 0.3s;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
     }
 
     nav a:hover {
-      transform: scale(1.1);
+      background: var(--rosa-medio);
+      color: white;
+    }
+
+    section {
+      padding: 40px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    section:target {
+      box-shadow: 0 0 20px var(--sombra-suave);
     }
 
     .productos, .testimonios {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 40px;
     }
 
     .producto, .testimonio {
       background: #fff;
       border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px var(--sombra-suave);
       padding: 20px;
-      transition: all 0.3s ease-in-out;
+      transition: transform 0.3s ease;
     }
 
     .producto:hover, .testimonio:hover {
@@ -68,23 +95,40 @@
     }
 
     .producto img {
-      max-width: 100%;
+      width: 100%;
       border-radius: 12px;
       margin-bottom: 10px;
+    }
+
+    .testimonio {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: aparecer 1s ease forwards;
+    }
+
+    .testimonios .testimonio:nth-child(1) { animation-delay: 0.2s; }
+    .testimonios .testimonio:nth-child(2) { animation-delay: 0.5s; }
+
+    @keyframes aparecer {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .carrito {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #cc3366;
+      background: var(--vino);
       color: white;
       padding: 10px 20px;
       border-radius: 30px;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px var(--sombra-suave);
+      transition: transform 0.3s;
+      z-index: 1000;
     }
 
     .carrito:hover {
@@ -92,17 +136,48 @@
     }
 
     footer {
-      background: #ffcce0;
+      background: var(--rosa-medio);
       text-align: center;
       padding: 20px;
+      color: white;
       font-size: 0.9em;
+    }
+
+    .contacto-flotante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--rosa-oscuro);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 12px var(--sombra-suave);
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+    .contacto-flotante:hover {
+      background: var(--vino);
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Tienda Creativa Cristiana</h1>
+    <img src="logo-amado-proposito.png" alt="Logo Amado Propósito">
+    <h1>Amado Propósito</h1>
+    <p>Diseña con propósito, enseña con pasión</p>
   </header>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/23/audio_20b91c6e01.mp3?filename=ambient-piano-112191.mp3" type="audio/mpeg">
+  </audio>
 
   <div class="carrito">🛒 Carrito (0)</div>
 
@@ -114,12 +189,12 @@
 
   <section id="productos" class="productos">
     <div class="producto">
-      <img src="https://via.placeholder.com/250x250/ffcce0/fff?text=Sticker" alt="Producto 1">
+      <img src="https://via.placeholder.com/250x250/fddfe9/7e1f3e?text=Sticker" alt="Producto 1">
       <h3>Stickers Bíblicos</h3>
       <p>$5.00</p>
     </div>
     <div class="producto">
-      <img src="https://via.placeholder.com/250x250/fde0e6/fff?text=Print" alt="Producto 2">
+      <img src="https://via.placeholder.com/250x250/f6a4b5/fff?text=Print" alt="Producto 2">
       <h3>Prints Cristianos</h3>
       <p>$8.00</p>
     </div>
@@ -148,13 +223,12 @@
   </section>
 
   <footer>
-    © 2025 Tienda Creativa Cristiana. Con amor y propósito.
+    © 2025 Amado Propósito. Diseña con propósito, enseña con pasión.
   </footer>
-<footer class="p-6 bg-pink-100 text-center mt-10">
-  <p class="text-sm mb-2">¿Quieres contactarme para enseñanzas, pedidos o colaboraciones?</p>
-  <a href="mailto:tuemail@ejemplo.com" class="inline-block bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">
-    Escríbeme aquí
+
+  <a href="mailto:tuemail@ejemplo.com" class="contacto-flotante">
+    Contáctame
   </a>
-</footer>
+
 </body>
 </html>
