@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Creativa Cristiana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: #fff0f5;
+      color: #4b0033;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #ffcce0, #cc3366);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 5px solid #a62c55;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    nav {
+      background: #ffe6f0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #a62c55;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+
+    nav a:hover {
+      transform: scale(1.1);
+    }
+
+    .productos, .testimonios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .producto, .testimonio {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .producto:hover, .testimonio:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .producto img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .carrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #cc3366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .carrito:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background: #ffcce0;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tienda Creativa Cristiana</h1>
+  </header>
+
+  <div class="carrito">🛒 Carrito (0)</div>
+
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#ensenanzas">Enseñanzas</a>
+  </nav>
+
+  <section id="productos" class="productos">
+    <div class="producto">
+      <img src="https://via.placeholder.com/250x250/ffcce0/fff?text=Sticker" alt="Producto 1">
+      <h3>Stickers Bíblicos</h3>
+      <p>$5.00</p>
+    </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/250x250/fde0e6/fff?text=Print" alt="Producto 2">
+      <h3>Prints Cristianos</h3>
+      <p>$8.00</p>
+    </div>
+  </section>
+
+  <section id="testimonios" class="testimonios">
+    <div class="testimonio">
+      <p>"¡Estos diseños me inspiran todos los días! Dios usa esta tienda para bendecir."</p>
+      <strong>- María G.</strong>
+    </div>
+    <div class="testimonio">
+      <p>"Todo es tan bonito y lleno de amor. ¡Ya quiero comprar más!"</p>
+      <strong>- Carolina P.</strong>
+    </div>
+  </section>
+
+  <section id="ensenanzas" class="productos">
+    <div class="producto">
+      <h3>Enseñanza: Fe en tiempos difíciles</h3>
+      <p>Una reflexión basada en Hebreos 11. Descarga gratis.</p>
+    </div>
+    <div class="producto">
+      <h3>Video: Adoración en Espíritu</h3>
+      <p>Aprende a tener un corazón alineado con Dios. Ver en YouTube.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Tienda Creativa Cristiana. Con amor y propósito.
+  </footer>
+<footer class="p-6 bg-pink-100 text-center mt-10">
+  <p class="text-sm mb-2">¿Quieres contactarme para enseñanzas, pedidos o colaboraciones?</p>
+  <a href="mailto:tuemail@ejemplo.com" class="inline-block bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">
+    Escríbeme aquí
+  </a>
+</footer>
+</body>
+</html>
